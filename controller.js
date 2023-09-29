@@ -1,4 +1,5 @@
-var _ = require('lodash');
+import fetch from 'node-fetch';
+import _ from 'lodash';
 
 const catchAsync = fn => (req, res, next) => {
     Promise.resolve(fn(req, res, next)).catch(err => {
@@ -106,6 +107,5 @@ const searchBlog = catchAsync(async (req, res) => {
     res.send(searchResult);
 }
 );
-module.exports =
-    { blogStats, searchBlog };
+export { blogStats, searchBlog };
 
